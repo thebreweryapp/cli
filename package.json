@@ -1,0 +1,66 @@
+{
+  "name": "@amberjs/cli",
+  "version": "0.0.1",
+  "description": "Amber.js command line interface",
+  "main": "./src/handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pkg package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.stratpoint.dev/thebrewery/amberjs/cli.git"
+  },
+  "pkg": {
+    "scripts": "src/actions/**",
+    "assets": "src/configs/*.json"
+  },
+  "keywords": [
+    "thebrewery",
+    "amberjs",
+    "cli",
+    "generators"
+  ],
+  "author": "brewers@stratpoint.com",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "command-exists": "^1.2.8",
+    "commander": "^3.0.1",
+    "decompress": "^4.2.0",
+    "decompress-targz": "^4.1.1",
+    "dotenv": "^8.1.0",
+    "graphql-to-json-schema": "^1.0.0",
+    "inflection": "^1.12.0",
+    "inquirer": "^7.0.0",
+    "mv": "^2.1.1",
+    "ora": "^4.0.1",
+    "sequelize": "^5.19.0",
+    "sequelize-auto-v2": "^0.5.3",
+    "sequelize-cli": "^5.5.1",
+    "swagger-sequelize": "^0.1.3",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.3.0",
+    "pkg": "^4.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,config}/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "bin": {
+    "amber": "./src/handler.js"
+  }
+}
