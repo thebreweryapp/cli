@@ -1,69 +1,34 @@
-# brewery-cli
+# @amberjs/cli
 
-CLI tool for stratpoint brewery framework (https://gitlab.stratpoint.com/thebrewery/node-api-boilerplate)
+Amber.js CLI tool. Code generators for Amber.js Framework.
 
 ## Table of Contents
 
-* [Prerequisites](#prerequisites)
-* [Build](#Build)
 * [Usage](#usage)
 * [Development](#development)
+  * [Prerequisites](#prerequisites)
+  * [Build](#Build)
 * [Contributors](#contributors)
 * [License](#license)
 
-## Prerequisites
-Install ```pkg``` for creating executable files
-```sh
-npm install -g pkg
-```
-
-## Build
-To build executable file for all platforms (Windows, Linux, Macos) run:
-```sh
-npm run build
-```
-  or
-
-```sh
- pkg package.json
-```
-
-this will create the executable files on brewery-cli root directory
-
 ## Usage
 
-/path/to/executable ```<command>``` --options
+This CLI tools is a helper for Amber.js Framework. It eases development workflow by generating codes and templates for Amber.js Framework.
 
+You must be in the root directory of an Amber.js project generated using [@brewery/cli](https://gitlab.stratpoint.dev/thebrewery/brewery-cli).
 
 ```
-
-Brewery CLI v1.0.0
+Amber.js CLI v0.0.1
 
 Commands:
-  init                              initialize project
-  scaffold                          scaffold domain, models, repositories, routes, controllers, service/operation out of swagger specs
-
-DB commands for backend:
-  db:migrate                        Run pending migrations
-  db:migrate:schema:timestamps:add  Update migration table to have timestamps
-  db:migrate:status                 List the status of all migrations
-  db:migrate:undo                   Reverts a migration
-  db:migrate:undo:all               Revert all migrations ran
-  db:seed                           Run specified seeder
-  db:seed:undo                      Deletes data from the database
-  db:seed:all                       Run every seeder
-  db:seed:undo:all                  Deletes data from the database
-  db:create                         Create database specified by configuration
-  db:drop                           Drop database specified by configuration
-  db:init                           Initializes project
-  db:init:config                    Initializes configuration
-  db:init:migrations                Initializes migrations
-  db:init:models                    Initializes models
-  db:init:seeders                   Initializes seeders
-  db:migration:generate             Generates a new migration file
-  db:model:generate                 Generates a model and its migration  
-  db:seed:generate                  Generates a new seed file                            
-
+  graphql:deploy            deploy resolver server using defined SDL
+  scaffold                  scaffold infra, interface and domain based on swagger schema
+  create:domain <name>      create domain base template
+  create:appservice <name>  create app service base template
+  create:datasource         create datasource wizard
+  create:repository         create repository command
+  create:model              create model command
+  create:apiresource        create apiresource command
 ```
 
 ## Development
@@ -73,6 +38,7 @@ Creating commands:
 Example command configuration:
 
 Single command in one JSON file:
+
 ```json
 {
     "command": "command <!arg1> <arg2>",
@@ -154,7 +120,13 @@ To create commands for CLI, create new json file on ```src/configs/your_command.
 
 
 
-Example script for command action considering the following input from the CLI "``` brewery samplecommand argValue --option1=value ```":
+Example script for command action considering the following input from the CLI
+
+```sh
+binaryname samplecommand argValue --option1=value 
+```
+
+
 ```js
 
 const commandAction = (config, command, args) => {
@@ -201,7 +173,7 @@ const commandAction = (config, command, args) => {
  */
 
   console.log(args) // contains array of raw arguments inputted on the cli
-  // ['brewery', 'samplecommand', 'argValue', '--option1=value']
+  // ['binaryname', 'samplecommand', 'argValue', '--option1=value']
 
 
   // Perform the action for your command ...
@@ -211,15 +183,35 @@ const commandAction = (config, command, args) => {
 module.exports = commandAction;
 ```
 
+## Prerequisites
 
+Install ```pkg``` for creating executable files
+```sh
+npm install -g pkg
+```
 
+## Build
 
+To build executable file for all platforms (Windows, Linux, Macos) run:
 
+```sh
+npm run build
+```
+
+or
+
+```sh
+pkg package.json
+```
+
+this will create the executable files on project root directory
 
 ## Contributors
 
 * Joshua Elijah Mante
-* Ronald dela Cruz
+* Ronald dela Cruz 
+* James Levin Calado
+* brewers@stratpoint.com
 
 ## License
 
