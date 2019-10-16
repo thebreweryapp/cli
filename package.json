@@ -1,6 +1,6 @@
 {
   "name": "@amberjs/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Amber.js command line interface",
   "main": "./src/handler.js",
   "scripts": {
