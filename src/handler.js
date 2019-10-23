@@ -5,8 +5,8 @@ const config = require('../config');
 // load user config
 require('../config/load-user-config')();
 
-const scaffoldCallback = require('./actions/scaffold');
-const graphqlDeployCallback = require('./actions/graphql');
+// const scaffoldCallback = require('./actions/scaffold');
+// const graphqlDeployCallback = require('./actions/graphql');
 
 // module create commands
 const {
@@ -27,15 +27,18 @@ program.version(config.VERSION);
 
 /** commands */
 
-program
-  .command('graphql:deploy')
-  .description('deploy resolver server using defined SDL')
-  .action(graphqlDeployCallback);
+/**
+ * TODO:  UPDATE GRAPHQL SCAFFOLDING
+ */
+// program
+//   .command('graphql:deploy')
+//   .description('deploy resolver server using defined SDL')
+//   .action(graphqlDeployCallback);
 
-program
-  .command('scaffold')
-  .description('scaffold infra, interface and domain based on swagger schema')
-  .action(scaffoldCallback);
+// program
+//   .command('scaffold')
+//   .description('scaffold infra, interface and domain based on swagger schema')
+//   .action(scaffoldCallback);
 
 program
   .command('create:domain <name>')
