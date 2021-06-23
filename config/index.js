@@ -42,8 +42,8 @@ const config = {
     mssql: ['tedious'],
   },
   // free lambda deployer
-  LAMBDA_AWS_ACCESS_KEY_ID: 'AKIAXWLFMHU5WN455KV4',
-  LAMBDA_AWS_SECRET_ACCESS_KEY: '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',
+  LAMBDA_AWS_ACCESS_KEY_ID: 'xxxx',
+  LAMBDA_AWS_SECRET_ACCESS_KEY: 'xxxx',
 };
 
 module.exports = config;
